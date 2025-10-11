@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* === AUTH PAGE STYLES === */
+@layer components {
+  /* === Container === */
+  .auth-container {
+    @apply bg-gray-100 min-h-screen flex items-center justify-center px-4;
+  }
+
+  /* === Card Wrapper === */
+  .auth-card {
+    @apply max-w-7xl w-full h-[90vh] mx-auto flex flex-col lg:flex-row bg-white 
+    rounded-3xl shadow-2xl overflow-hidden border border-gray-200 p-6 gap-6;
+  }
+
+  /* === Left Slide Section === */
+  .auth-left {
+    @apply w-full lg:w-1/2 bg-gray-50 rounded-2xl shadow-lg relative overflow-hidden;
+  }
+
+  .auth-slide {
+    @apply w-full h-full object-cover transition-all duration-700 ease-in-out;
+  }
+
+  .auth-overlay {
+    @apply absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-40;
+  }
+
+  .auth-caption {
+    @apply absolute bottom-10 left-1/2 -translate-x-1/2 text-center px-4 w-full;
+  }
+
+  .auth-caption h3 {
+    @apply text-xl text-gray-800 font-bold;
+  }
+
+  .auth-dots {
+    @apply absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2;
+  }
+
+  .dot {
+    @apply h-2 w-2 bg-white/50 rounded-full transition-all duration-300;
+  }
+
+  .dot-active {
+    @apply w-6 bg-blue-600;
+  }
+
+  /* === Right Form Section === */
+  .auth-right {
+    @apply w-full lg:w-1/2 bg-gray-50 rounded-2xl shadow-lg flex flex-col 
+    items-center justify-center p-12 relative;
+  }
+
+  /* === Logo === */
+  .auth-logo {
+    @apply absolute top-8 right-8;
+  }
+
+  .auth-logo img {
+    @apply h-[70px];
+  }
+
+  /* === Form === */
+  .auth-form-wrapper {
+    @apply w-full max-w-lg text-center mt-24;
+  }
+
+  .auth-field {
+    @apply relative;
+  }
+
+  .auth-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 bg-white 
+    outline-none transition-all text-base focus:border-blue-600;
+  }
+
+  .auth-label {
+    @apply absolute left-4 top-3 text-gray-500 text-2xl transition-all pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:top-[-10px] peer-focus:left-3 peer-focus:text-xs peer-focus:bg-white peer-focus:px-1 peer-focus:text-gray-700 peer-[:not(:placeholder-shown)]:top-[-10px] peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-1 peer-[:not(:placeholder-shown)]:text-gray-700;
+  }
+
+  .auth-eye {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 text-xl text-gray-500;
+  }
+
+  /* === Button === */
+  .auth-button {
+    @apply bg-blue-600 text-white rounded-lg py-3.5 text-lg font-medium w-full 
+    transition-all hover:bg-blue-700;
+  }
+
+  /* === Text & Link === */
+  .auth-text {
+    @apply text-gray-600 text-base mb-8;
+  }
+
+  .auth-link {
+    @apply text-blue-600 font-semibold hover:underline;
+  }
+
+  /* === Divider === */
+  .auth-divider {
+    @apply relative flex justify-center items-center py-1;
+  }
+
+  .auth-divider::before {
+    @apply content-[''] absolute inset-0 border-t border-gray-300;
+  }
+
+  .auth-divider span {
+    @apply bg-gray-50 px-3 text-gray-600 text-base relative;
+  }
+
+  /* === Social Buttons === */
+  .auth-socials {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .auth-social {
+    @apply flex items-center justify-center gap-2 py-3 border border-gray-300 
+    rounded-lg hover:bg-gray-100 text-gray-800 font-medium text-base transition-all;
+  }
+}

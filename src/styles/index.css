@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* === Custom Font === */
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('/fonts/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === Theme Variables === */
+@theme {
+  --color-primary: #1A3D7C;
+  --color-secondary: #4FC1E0;
+  --color-dark-gray: #2C2C2C;
+  --color-medium-gray: #F5F5F5;
+  --color-light-gray: #FFFFFF;
+
+  --color-success: #28A745;
+  --color-warning: #FF6200;
+  --color-error: #E53935;
+
+  --font-primary: "RobotoSerif", "Inter", system-ui, sans-serif;
+  --font-secondary: "Roboto", system-ui, sans-serif;
+
+  --text-h1-size: clamp(28px, 2.2vw, 32px);
+  --text-h1-weight: 700;
+  --text-h2-size: clamp(22px, 2vw, 24px);
+  --text-h2-weight: 600;
+  --text-h3-size: clamp(18px, 1.8vw, 20px);
+  --text-h3-weight: 600;
+  --text-body-size: clamp(14px, 1.5vw, 16px);
+  --text-body-weight: 400;
+  --text-caption-size: 12px;
+  --text-caption-weight: 400;
+}
+
+/* === Utility Classes === */
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-dark { color: var(--color-dark-gray); }
+.text-medium { color: var(--color-medium-gray); }
+.text-light { color: var(--color-light-gray); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-error { background-color: var(--color-error); }
+
+/* === Text Sizes === */
+.text-h1 { font-size: var(--text-h1-size); font-weight: var(--text-h1-weight); }
+.text-h2 { font-size: var(--text-h2-size); font-weight: var(--text-h2-weight); }
+.text-h3 { font-size: var(--text-h3-size); font-weight: var(--text-h3-weight); }
+.text-body { font-size: var(--text-body-size); font-weight: var(--text-body-weight); }
+.text-caption { font-size: var(--text-caption-size); font-weight: var(--text-caption-weight); }
+
+/* === Buttons === */
+.my-button {
+  @apply text-white py-2 px-4 rounded font-primary transition-colors duration-300;
+  background-color: var(--color-primary);
+}
+
+.my-button:hover {
+  background-color: var(--color-secondary);
+}
+
+.my-button:active {
+  background-color: var(--color-dark-gray);
+}

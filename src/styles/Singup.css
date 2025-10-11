@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* === AUTH PAGE STYLES === */
+@layer components {
+  /* === Container === */
+  .auth-container {
+    @apply bg-gray-100 min-h-screen flex items-center justify-center px-4;
+  }
+
+  /* === Card Wrapper === */
+  .auth-card {
+    @apply max-w-7xl w-full h-[90vh] mx-auto flex flex-col lg:flex-row bg-white 
+    rounded-3xl shadow-2xl overflow-hidden border border-gray-200 p-6 gap-6;
+  }
+
+  /* === Left Slide Section === */
+  .auth-left {
+    @apply relative w-full lg:w-1/2 flex items-center justify-center overflow-hidden rounded-2xl;
+  }
+
+  .auth-slide {
+    @apply w-full h-full object-cover transition-all duration-700 ease-in-out;
+  }
+
+  .auth-overlay {
+    @apply absolute inset-0 bg-black/30;
+  }
+
+  .auth-caption {
+    @apply absolute bottom-6 left-5 text-white text-base font-medium;
+  }
+
+  /* === Right Form Section === */
+  .auth-right {
+    @apply w-full lg:w-1/2 flex flex-col items-center justify-center px-6;
+  }
+
+  /* === Logo === */
+  .auth-logo img {
+    @apply h-[60px];
+  }
+
+  /* === Heading === */
+  .auth-heading {
+    @apply text-xl font-semibold text-blue-800 mb-3;
+  }
+
+  /* === Form === */
+  .auth-form {
+    @apply space-y-3 w-full;
+  }
+
+  .auth-field {
+    @apply flex flex-col;
+  }
+
+  .auth-label {
+    @apply block text-gray-700 font-medium mb-1 text-sm;
+  }
+
+  .auth-input {
+    @apply w-full border border-gray-300 rounded-lg px-3 py-2 text-sm 
+    focus:ring-2 focus:ring-blue-600 focus:outline-none;
+  }
+
+  .auth-error {
+    @apply text-red-500 text-xs mt-0.5;
+  }
+
+  .auth-checkbox {
+    @apply flex items-center gap-2;
+  }
+
+  .auth-checkbox-label {
+    @apply text-xs text-gray-700;
+  }
+
+  .auth-submit {
+    @apply w-full bg-blue-800 text-white font-semibold py-2.5 rounded-lg 
+    text-sm hover:bg-blue-900 transition;
+  }
+
+  .auth-link-text {
+    @apply text-center text-gray-600 text-xs;
+  }
+
+  .auth-link {
+    @apply text-blue-700 font-medium;
+  }
+
+  /* === Divider === */
+  .auth-divider {
+    @apply flex items-center gap-2 my-3;
+  }
+
+  .auth-divider hr {
+    @apply flex-grow border-gray-300;
+  }
+
+  .auth-divider span {
+    @apply text-gray-500 text-xs;
+  }
+
+  /* === Social Buttons === */
+  .auth-socials {
+    @apply flex gap-3;
+  }
+
+  .auth-social {
+    @apply w-1/2 flex items-center justify-center border border-gray-300 py-1.5 
+    rounded-lg hover:bg-gray-100 transition text-sm;
+  }
+
+  .auth-social-facebook {
+    @apply text-blue-600 text-lg mr-2;
+  }
+
+  .auth-social-google {
+    @apply text-red-600 text-lg mr-2;
+  }
+}
+/* === Floating Labels === */
+.floating-label {
+  @apply absolute left-3 top-2.5 text-gray-500 text-sm transition-all duration-200 
+  bg-white px-1 pointer-events-none;
+}
+
+.peer:placeholder-shown ~ .floating-label {
+  @apply top-3.5 text-gray-400 text-sm;
+}
+
+.peer:not(:placeholder-shown) ~ .floating-label,
+.peer:focus ~ .floating-label {
+  @apply -top-2 text-xs text-blue-700;
+}
+
+/* === Enhanced Background === */
+.enhanced-bg {
+  background: linear-gradient(135deg, #1a3d7c 0%, #4fc1e0 100%);
+  background-attachment: fixed;
+}
+
+/* === Glassmorphism Card === */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* === Animations === */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade {
+  animation: fade 0.8s ease forwards;
+}
+.fade-in {
+  animation: fade 1s ease-in-out;
+}
+
+/* === Caption Styling === */
+.caption-bg {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
