@@ -3,9 +3,10 @@
 /* === AUTH PAGE STYLES === */
 @layer components {
   /* === Container === */
-  .auth-container {
-    @apply bg-gray-100 min-h-screen flex items-center justify-center px-4;
-  }
+   .auth-container {
+    @apply bg-gray-100  min-h-screen flex items-center justify-center px-4;
+  } 
+
 
   /* === Card Wrapper === */
   .auth-card {
@@ -34,6 +35,8 @@
   .auth-right {
     @apply w-full lg:w-1/2 flex flex-col items-center justify-center px-6;
   }
+ 
+
 
   /* === Logo === */
   .auth-logo img {
@@ -42,7 +45,7 @@
 
   /* === Heading === */
   .auth-heading {
-    @apply text-xl font-semibold text-blue-800 mb-3;
+    @apply text-2xl font-semibol mb-3;
   }
 
   /* === Form === */
@@ -76,7 +79,7 @@
   }
 
   .auth-submit {
-    @apply w-full bg-blue-800 text-white font-semibold py-2.5 rounded-lg 
+    @apply w-full text-white font-semibold py-2.5 rounded-lg 
     text-sm hover:bg-blue-900 transition;
   }
 
