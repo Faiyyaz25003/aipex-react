@@ -45,7 +45,7 @@
 
   /* === Heading === */
   .auth-heading {
-    @apply text-2xl font-semibol mb-3;
+    @apply text-2xl  mb-3;
   }
 
   /* === Form === */
@@ -91,18 +91,6 @@
     @apply text-blue-700 font-medium;
   }
 
-  /* === Divider === */
-  .auth-divider {
-    @apply flex items-center gap-2 my-3;
-  }
-
-  .auth-divider hr {
-    @apply flex-grow border-gray-300;
-  }
-
-  .auth-divider span {
-    @apply text-gray-500 text-xs;
-  }
 
   /* === Social Buttons === */
   .auth-socials {
@@ -153,7 +141,7 @@
 /* === Animations === */
 @keyframes fade {
   from {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
   }
   to {

@@ -54,7 +54,7 @@
 
   /* === Logo === */
   .auth-logo {
-    @apply absolute top-8 right-8;
+    @apply absolute top-18  right-40;
   }
 
   .auth-logo img {
@@ -83,6 +83,12 @@
     @apply absolute right-4 top-1/2 -translate-y-1/2 text-xl text-gray-500;
   }
 
+   /* === Heading === */
+  .auth-heading {
+    @apply text-4xl  mb-3;
+  }
+
+
   /* === Button === */
   .auth-button {
     @apply bg-blue-600 text-white rounded-lg py-3.5 text-lg font-medium w-full 
@@ -98,19 +104,18 @@
     @apply text-blue-600 font-semibold hover:underline;
   }
 
-  /* === Divider === */
-  .auth-divider {
-    @apply relative flex justify-center items-center py-1;
-  }
+  /* === Divider Section === */
+.auth-divider {
+  @apply flex items-center justify-center my-6 relative;
+}
 
-  .auth-divider::before {
-    @apply content-[''] absolute inset-0 border-t border-gray-300;
-  }
+.auth-divider-line {
+  @apply flex-grow border-t border-gray-300;
+}
 
-  .auth-divider span {
-    @apply bg-gray-50 px-3 text-gray-600 text-base relative;
-  }
-
+.auth-divider-text {
+  @apply text-gray-400 text-sm px-3;
+}
   /* === Social Buttons === */
   .auth-socials {
     @apply grid grid-cols-2 gap-4;
