@@ -13,6 +13,7 @@ const resources = {
       login: "LOGIN",
       heroTitle: "We offer innovative logistics solutions",
       heroSubtitle: "that deliver your couriers on time.",
+      servicesHeader: "Services We offer", // <-- NEW
 
       // Dropdowns
       domesticCourier: "Domestic Courier",
@@ -24,8 +25,15 @@ const resources = {
       dangerousGoodsCourier: "Dangerous Goods Courier",
       transportService: "Transport Service",
 
-      singleShipment: "Single Shipment",
-      multipleShipment: "Multiple Shipment",
+      // Services Descriptions
+      domesticCourierDesc:
+        "Our domestic flexible model ensures you benefit from improved service levels, greater flexibility and time-definite deliveries.",
+      internationalCourierDesc:
+        "Our logistical expertise has enabled us to setup our own operations network for countries like – UK, Singapore, Hongkong, Sri Lanka, etc.",
+      customsClearingDesc:
+        "Our customs clearing license thus making it easier for you to clear your imports / exports.",
+      warehousingDesc:
+        "We combine our supply chain expertise with powerful technology to provide complete warehousing and fulfillment solutions.",
 
       // === Aipex Benefit Section ===
       isoCertified: "An ISO 9001:2005 certified company",
@@ -61,6 +69,7 @@ const resources = {
       login: "लॉगिन",
       heroTitle: "आम्ही नाविन्यपूर्ण लॉजिस्टिक सोल्यूशन्स ऑफर करतो",
       heroSubtitle: "जे तुमचे कुरिअर्स वेळेत पोहचवतात.",
+      servicesHeader: "आमच्या सेवा", // <-- NEW
 
       // Dropdowns
       domesticCourier: "देशांतर्गत कुरिअर",
@@ -72,8 +81,15 @@ const resources = {
       dangerousGoodsCourier: "धोकादायक माल कुरिअर",
       transportService: "वाहतूक सेवा",
 
-      singleShipment: "एकच माल पाठवणी",
-      multipleShipment: "एकाधिक माल पाठवणी",
+      // Services Descriptions
+      domesticCourierDesc:
+        "आमच्या देशांतर्गत लवचिक मॉडेलमुळे तुम्हाला सुधारित सेवा पातळी, अधिक लवचिकता आणि वेळ निश्चित वितरणाचा फायदा मिळतो.",
+      internationalCourierDesc:
+        "आमच्या लॉजिस्टिकल तज्ज्ञतेमुळे आम्ही यूके, सिंगापूर, हॉंगकॉंग, श्रीलंका इत्यादी देशांसाठी आपले स्वतःचे ऑपरेशन्स नेटवर्क तयार केले आहे.",
+      customsClearingDesc:
+        "आमच्या कस्टम्स क्लिअरिंग परवान्यामुळे तुमचे आयात / निर्यात सुलभ होते.",
+      warehousingDesc:
+        "आम्ही आमच्या पुरवठा साखळीच्या तज्ज्ञतेसह प्रगत तंत्रज्ञान वापरून संपूर्ण वेअरहाऊसिंग आणि फुलफिलमेंट सोल्यूशन्स पुरवतो.",
 
       // === Aipex Benefit Section ===
       isoCertified: "ISO 9001:2005 प्रमाणित कंपनी",
@@ -109,6 +125,7 @@ const resources = {
       login: "تسجيل الدخول",
       heroTitle: "نقدم حلول لوجستية مبتكرة",
       heroSubtitle: "لتوصيل طرودك في الوقت المحدد.",
+      servicesHeader: "الخدمات التي نقدمها", // <-- NEW
 
       // Dropdowns
       domesticCourier: "توصيل محلي",
@@ -120,8 +137,15 @@ const resources = {
       dangerousGoodsCourier: "توصيل المواد الخطرة",
       transportService: "خدمة النقل",
 
-      singleShipment: "شحنة واحدة",
-      multipleShipment: "شحنات متعددة",
+      // Services Descriptions
+      domesticCourierDesc:
+        "نموذجنا المحلي المرن يضمن حصولك على مستويات خدمة محسنة ومرونة أكبر وتسليم في الوقت المحدد.",
+      internationalCourierDesc:
+        "لقد مكنت خبرتنا اللوجستية من إنشاء شبكة عمليات خاصة بنا لدول مثل المملكة المتحدة وسنغافورة وهونغ كونغ وسريلانكا.",
+      customsClearingDesc:
+        "تسهل تراخيص التخليص الجمركي لدينا عملية استيراد / تصدير البضائع الخاصة بك.",
+      warehousingDesc:
+        "نحن نجمع بين خبرتنا في سلسلة التوريد والتكنولوجيا المتقدمة لتوفير حلول كاملة للتخزين والتنفيذ.",
 
       // === Aipex Benefit Section ===
       isoCertified: "شركة معتمدة ISO 9001:2005",

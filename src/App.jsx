@@ -36,9 +36,11 @@ import React from 'react'
 
 import Navbar from './pages/Navbar'
 import HeroSection from './pages/HeroSection'
-import Header from './pages/Header'
 import Benifit from './pages/Benifit'
 import Operation from './pages/Operation'
+import Service from './pages/Services'
+import Courier from "./pages/Courier";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -46,7 +48,10 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <Benifit />
-      <Operation/>
+      <Operation />
+      <Service />
+      <Courier />
+      <Contact/>
     </div>
   )
 }
