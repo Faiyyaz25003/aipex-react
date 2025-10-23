@@ -34,19 +34,19 @@ const resources = {
         "Our expertise and many years of experience have enabled us to provide a wholesome supply chain solution. Our operations network leveraged with our employee workforce has enabled us to reach destinations across India and International markets. Main features that characterise us -",
 
       benefit1: "Service to over 200+ Destinations Worldwide",
-      benefit1Desc: "",
       benefit2: "Service to over 27,000+ pin codes in India",
-      benefit2Desc: "",
-      benefit3: "A service network of ५+ offices and ५0+ staff",
-      benefit3Desc: "",
+      benefit3: "A service network of 5+ offices and 50+ staff",
       benefit4: "Automated tools and dashboard to track",
-      benefit4Desc: "",
       benefit5: "Safe and Secure shipments delivery",
-      benefit5Desc: "",
       benefit6: "On time and efficient delivery schedules",
-      benefit6Desc: "",
       benefit7: "Get real time tracking and delivery status",
-      benefit7Desc: "",
+
+      // === Operations & Network Section ===
+      operationsNetwork: "Operations & Network",
+      branchesPanIndia: "Branches Pan India",
+      strongWorkforce: "Strong Workforce",
+      shipmentsPerDay: "Shipments Per Day",
+      happyCustomers: "Happy Customers",
     },
   },
 
@@ -88,6 +88,13 @@ const resources = {
       benefit5: "सुरक्षित आणि विश्वासार्ह शिपमेंट वितरण",
       benefit6: "वेळेत आणि कार्यक्षम वितरण वेळापत्रक",
       benefit7: "रिअल टाइम ट्रॅकिंग आणि वितरण स्थिती मिळवा",
+
+      // === Operations & Network Section ===
+      operationsNetwork: "ऑपरेशन्स आणि नेटवर्क",
+      branchesPanIndia: "भारतभर शाखा",
+      strongWorkforce: "मजबूत कर्मचारीवर्ग",
+      shipmentsPerDay: "दररोज शिपमेंट्स",
+      happyCustomers: "आनंदी ग्राहक",
     },
   },
 
@@ -129,6 +136,13 @@ const resources = {
       benefit5: "توصيل آمن ومضمون للشحنات",
       benefit6: "جداول تسليم دقيقة وفعالة",
       benefit7: "تتبع فوري لحالة التسليم",
+
+      // === Operations & Network Section ===
+      operationsNetwork: "العمليات والشبكة",
+      branchesPanIndia: "فروع في جميع أنحاء الهند",
+      strongWorkforce: "قوة عاملة قوية",
+      shipmentsPerDay: "شحنات يومية",
+      happyCustomers: "عملاء سعداء",
     },
   },
 };
