@@ -6,16 +6,19 @@ export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-light min-h-screen flex items-center justify-center px-6 md:px-12">
-      <div className="max-w-4xl text-center">
-        <h1 className="text-h1 font-bold mb-4">{t("welcome")}</h1>
-        <p className="text-body mb-6">{t("about")}</p>
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button className="my-button">{t("getStarted")}</button>
-          <button className="my-button bg-secondary hover:bg-primary">
-            {t("learnMore")}
-          </button>
-        </div>
+    <section
+      className="relative w-screen h-[80vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/HeroImage.jpg')" }}
+    >
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Text content */}
+      <div className="relative text-center text-white px-6 md:px-12">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+          {t("heroTitle")}
+        </h1>
+        <p className="text-lg md:text-2xl">{t("heroSubtitle")}</p>
       </div>
     </section>
   );

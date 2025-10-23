@@ -36,12 +36,15 @@ import React from 'react'
 
 import Navbar from './pages/Navbar'
 import HeroSection from './pages/HeroSection'
+import Header from './pages/Header'
+import Benifit from './pages/Benifit'
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <HeroSection/>
+      <HeroSection />
+      <Benifit/>
     </div>
   )
 }

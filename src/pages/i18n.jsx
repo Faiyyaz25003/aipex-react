@@ -11,6 +11,8 @@ const resources = {
       getInTouch: "GET IN TOUCH",
       trackShipment: "TRACK SHIPMENT",
       login: "LOGIN",
+      heroTitle: "We offer innovative logistics solutions",
+      heroSubtitle: "that deliver your couriers on time.",
 
       // Dropdowns
       domesticCourier: "Domestic Courier",
@@ -24,6 +26,27 @@ const resources = {
 
       singleShipment: "Single Shipment",
       multipleShipment: "Multiple Shipment",
+
+      // === Aipex Benefit Section ===
+      isoCertified: "An ISO 9001:2005 certified company",
+      aipexBenefitTitle: "The Aipex Benefit",
+      aipexBenefitDesc:
+        "Our expertise and many years of experience have enabled us to provide a wholesome supply chain solution. Our operations network leveraged with our employee workforce has enabled us to reach destinations across India and International markets. Main features that characterise us -",
+
+      benefit1: "Service to over 200+ Destinations Worldwide",
+      benefit1Desc: "",
+      benefit2: "Service to over 27,000+ pin codes in India",
+      benefit2Desc: "",
+      benefit3: "A service network of ५+ offices and ५0+ staff",
+      benefit3Desc: "",
+      benefit4: "Automated tools and dashboard to track",
+      benefit4Desc: "",
+      benefit5: "Safe and Secure shipments delivery",
+      benefit5Desc: "",
+      benefit6: "On time and efficient delivery schedules",
+      benefit6Desc: "",
+      benefit7: "Get real time tracking and delivery status",
+      benefit7Desc: "",
     },
   },
 
@@ -36,6 +59,8 @@ const resources = {
       getInTouch: "संपर्क साधा",
       trackShipment: "माल पाठवणी ट्रॅक करा",
       login: "लॉगिन",
+      heroTitle: "आम्ही नाविन्यपूर्ण लॉजिस्टिक सोल्यूशन्स ऑफर करतो",
+      heroSubtitle: "जे तुमचे कुरिअर्स वेळेत पोहचवतात.",
 
       // Dropdowns
       domesticCourier: "देशांतर्गत कुरिअर",
@@ -49,6 +74,20 @@ const resources = {
 
       singleShipment: "एकच माल पाठवणी",
       multipleShipment: "एकाधिक माल पाठवणी",
+
+      // === Aipex Benefit Section ===
+      isoCertified: "ISO 9001:2005 प्रमाणित कंपनी",
+      aipexBenefitTitle: "Aipex चे फायदे",
+      aipexBenefitDesc:
+        "आमचा अनुभव आणि अनेक वर्षांचा व्यावसायिक अनुभव आम्हाला संपूर्ण पुरवठा साखळी समाधान देण्यास सक्षम करतो. आमचे नेटवर्क आणि कर्मचारी शक्तीने आम्हाला भारत आणि आंतरराष्ट्रीय बाजारपेठांमध्ये पोहोचण्यास सक्षम केले आहे. आमच्या वैशिष्ट्यांमध्ये समाविष्ट आहे -",
+
+      benefit1: "जगभरातील 200+ ठिकाणी सेवा",
+      benefit2: "भारतातील 27,000+ पिन कोडसाठी सेवा",
+      benefit3: "5+ कार्यालये आणि 50+ कर्मचाऱ्यांचे नेटवर्क",
+      benefit4: "स्वयंचलित साधने आणि डॅशबोर्ड",
+      benefit5: "सुरक्षित आणि विश्वासार्ह शिपमेंट वितरण",
+      benefit6: "वेळेत आणि कार्यक्षम वितरण वेळापत्रक",
+      benefit7: "रिअल टाइम ट्रॅकिंग आणि वितरण स्थिती मिळवा",
     },
   },
 
@@ -61,6 +100,8 @@ const resources = {
       getInTouch: "تواصل معنا",
       trackShipment: "تتبع الشحنة",
       login: "تسجيل الدخول",
+      heroTitle: "نقدم حلول لوجستية مبتكرة",
+      heroSubtitle: "لتوصيل طرودك في الوقت المحدد.",
 
       // Dropdowns
       domesticCourier: "توصيل محلي",
@@ -74,6 +115,20 @@ const resources = {
 
       singleShipment: "شحنة واحدة",
       multipleShipment: "شحنات متعددة",
+
+      // === Aipex Benefit Section ===
+      isoCertified: "شركة معتمدة ISO 9001:2005",
+      aipexBenefitTitle: "مميزات Aipex",
+      aipexBenefitDesc:
+        "لقد مكنتنا خبرتنا الطويلة من تقديم حل متكامل لسلسلة التوريد. شبكتنا التشغيلية وفريقنا المؤهل مكنونا من الوصول إلى وجهات في جميع أنحاء الهند والأسواق الدولية. أهم المميزات التي تميزنا -",
+
+      benefit1: "خدمة لأكثر من 200 وجهة حول العالم",
+      benefit2: "خدمة لأكثر من 27,000 رمز بريدي في الهند",
+      benefit3: "شبكة تضم أكثر من 5 مكاتب و50 موظف",
+      benefit4: "أدوات ولوحة تحكم آلية للتتبع",
+      benefit5: "توصيل آمن ومضمون للشحنات",
+      benefit6: "جداول تسليم دقيقة وفعالة",
+      benefit7: "تتبع فوري لحالة التسليم",
     },
   },
 };
