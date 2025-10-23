@@ -41,6 +41,7 @@ import Operation from './pages/Operation'
 import Service from './pages/Services'
 import Courier from "./pages/Courier";
 import Contact from "./pages/Contact";
+import Tracking from './pages/Tracking'
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
       <Benifit />
       <Operation />
       <Service />
+      <Tracking/>
       <Courier />
       <Contact/>
     </div>
