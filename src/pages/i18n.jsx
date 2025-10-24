@@ -93,11 +93,14 @@ const resources = {
       login: "LOGIN",
       getInTouch: "GET IN TOUCH",
       trackShipment: "TRACK SHIPMENT",
+
+      ourClients: "Our Clients",
     },
   },
 
   mr: {
     translation: {
+      ourClients: "आमचे ग्राहक",
       companyName: "तुमची कुरिअर कंपनी",
       courierServices: "कुरिअर सेवा",
       courierServicesHeading: "आम्ही जागतिक पातळीवर कुरिअर सेवा पुरवतो",
@@ -178,6 +181,7 @@ const resources = {
 
   ar: {
     translation: {
+      ourClients: "عملاؤنا",
       companyName: "شركة التوصيل الخاصة بك",
       courierServices: "خدمات التوصيل",
       courierServicesHeading: "نحن نقدم خدمات التوصيل حول العالم",
