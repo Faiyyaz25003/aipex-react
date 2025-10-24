@@ -42,6 +42,7 @@ import Service from './pages/Services'
 import Courier from "./pages/Courier";
 import Contact from "./pages/Contact";
 import Tracking from './pages/Tracking'
+import Scroll from './pages/Scroll'
 
 const App = () => {
   return (
@@ -51,11 +52,12 @@ const App = () => {
       <Benifit />
       <Operation />
       <Service />
-      <Tracking/>
       <Courier />
-      <Contact/>
+      <Scroll/>
+      <Tracking />
+      <Contact />
     </div>
-  )
+  );
 }
 
 export default App
