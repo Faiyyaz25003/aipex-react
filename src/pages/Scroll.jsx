@@ -63,7 +63,7 @@ export default function ScrollGallery() {
       {/* ---- Heading ---- */}
       <div className="flex justify-start px-10">
         <div className="inline-block">
-          <h2 className="text-3xl font-bold bg-black bg-clip-text text-transparent mb-3">
+          <h2 className="text-3xl font-bold bg-black bg-clip-text text-transparent mb-3 ml-40">
             {t("ourClients")}
           </h2>
         </div>

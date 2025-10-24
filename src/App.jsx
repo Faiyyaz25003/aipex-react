@@ -43,6 +43,7 @@ import Courier from "./pages/Courier";
 import Contact from "./pages/Contact";
 import Tracking from './pages/Tracking'
 import Scroll from './pages/Scroll'
+import Footer from './pages/Footer'
 
 const App = () => {
   return (
@@ -56,6 +57,7 @@ const App = () => {
       <Scroll/>
       <Tracking />
       <Contact />
+      <Footer/>
     </div>
   );
 }

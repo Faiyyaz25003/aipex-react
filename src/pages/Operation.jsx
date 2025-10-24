@@ -10,16 +10,16 @@ export default function Operation() {
   const { t } = useTranslation();
 
   const stats = [
-    { value: "5+", label: t("branchesPanIndia") },
-    { value: "75+", label: t("strongWorkforce") },
-    { value: "6000+", label: t("shipmentsPerDay") },
-    { value: "5000+", label: t("happyCustomers") },
+    { value: t("branchesNumber"), label: t("branchesPanIndia") },
+    { value: t("workforceNumber"), label: t("strongWorkforce") },
+    { value: t("shipmentsNumber"), label: t("shipmentsPerDay") },
+    { value: t("customersNumber"), label: t("happyCustomers") },
   ];
 
   return (
     <section className="bg-[#223377] text-white py-16 px-6">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 ml-20">
           {t("operationsNetwork")}
         </h2>
 

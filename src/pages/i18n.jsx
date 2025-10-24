@@ -5,6 +5,12 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      trackShipment: "Quick Tracking Service",
+      trackShipmentDescription:
+        "*Please enter your (AWB) Air Waybill number or B/L number to track your shipment.",
+      awbPlaceholder: "Enter Your AWB Number",
+      trackNow: "TRACK NOW",
+
       // --- General Company Info ---
       companyName: "Your Courier Co.",
       courierServices: "COURIER SERVICES",
@@ -18,6 +24,8 @@ const resources = {
 
       // --- Services ---
       servicesHeader: "Services We offer",
+      servicesDescription:
+        "The success and scale of your business is dependent on how well your product reaches your customer. With Aipex Worldwide as your partner, you can be rest assured of safe, secure and quick delivery.",
       domesticCourier: "Domestic Courier",
       internationalCourier: "International Courier",
       ecommerceCourier: "E-commerce Courier",
@@ -68,6 +76,12 @@ const resources = {
       shipmentsPerDay: "Shipments Per Day",
       happyCustomers: "Happy Customers",
 
+      // --- Operations & Network Numbers ---
+      branchesNumber: "5+",
+      workforceNumber: "75+",
+      shipmentsNumber: "6000+",
+      customersNumber: "5000+",
+
       // --- Contact Form ---
       requestQuote: "Request a Free Quote",
       quoteSubtitle: "We will get back to you as soon as possible",
@@ -95,11 +109,32 @@ const resources = {
       trackShipment: "TRACK SHIPMENT",
 
       ourClients: "Our Clients",
+
+      // --- Footer ---
+      whoWeAre: "WHO WE ARE",
+      whoWeAreDesc:
+        "We offer innovative logistics solutions across various product types. Our warehousing and fulfillment solutions serve your local + global requirements.",
+      followUs: "FOLLOW US",
+      usefulLinks: "USEFUL LINKS",
+      home: "Home",
+      aboutUs: "About Us",
+      faqs: "FAQs",
+      contact: "Contact",
+      shippingTerms: "Shipping Terms",
+      privacyPolicy: "Privacy Policy",
+      otherServices: "OTHER SERVICES",
+      allRightsReserved: "All Rights Reserved.",
     },
   },
 
   mr: {
     translation: {
+      trackShipment: "जलद ट्रॅकिंग सेवा",
+      trackShipmentDescription:
+        "*आपला (AWB) एयर वे बिल नंबर किंवा B/L नंबर प्रविष्ट करा जेणेकरून आपली शिपमेंट ट्रॅक केली जाऊ शकेल.",
+      awbPlaceholder: "आपला AWB नंबर प्रविष्ट करा",
+      trackNow: "ट्रॅक करा",
+
       ourClients: "आमचे ग्राहक",
       companyName: "तुमची कुरिअर कंपनी",
       courierServices: "कुरिअर सेवा",
@@ -176,11 +211,45 @@ const resources = {
       login: "लॉगिन",
       getInTouch: "संपर्क साधा",
       trackShipment: "माल पाठवणी ट्रॅक करा",
+
+      // --- Operations & Network Numbers ---
+      branchesNumber: "५+",
+      workforceNumber: "७५+",
+      shipmentsNumber: "६०००+",
+      customersNumber: "५०००+",
+
+      servicesHeader: "आमच्या सेवा",
+      servicesDescription:
+        "तुमच्या व्यवसायाची यशस्विता आणि विस्तार यावर अवलंबून आहे की तुमचा उत्पादन ग्राहकांपर्यंत किती प्रभावीपणे पोहचतो. Aipex Worldwide सोबत तुमचा भागीदार असल्यामुळे तुम्ही सुरक्षित, विश्वसनीय आणि जलद वितरणाची खात्री करू शकता.",
+
+      // --- Footer ---
+      whoWeAre: "आम्ही कोण आहोत",
+      whoWeAreDesc:
+        "आम्ही विविध उत्पादन प्रकारांमध्ये नाविन्यपूर्ण लॉजिस्टिक सोल्यूशन्स देतो. आमच्या गोदाम आणि पूर्तता सेवा तुमच्या स्थानिक आणि जागतिक गरजांची पूर्तता करतात.",
+      followUs: "आम्हाला फॉलो करा",
+      usefulLinks: "उपयुक्त दुवे",
+      home: "मुखपृष्ठ",
+      aboutUs: "आमच्याबद्दल",
+      faqs: "नेहमी विचारले जाणारे प्रश्न",
+      contact: "संपर्क",
+      shippingTerms: "शिपिंग अटी",
+      privacyPolicy: "गोपनीयता धोरण",
+      otherServices: "इतर सेवा",
+      allRightsReserved: "सर्व हक्क राखीव आहेत.",
     },
   },
 
   ar: {
     translation: {
+
+      
+      trackShipment: "خدمة التتبع السريع",
+      trackShipmentDescription:
+        "*يرجى إدخال رقم بوليصة الشحن (AWB) أو رقم B/L لتتبع شحنتك.",
+      awbPlaceholder: "أدخل رقم AWB الخاص بك",
+      trackNow: "تتبع الآن",
+
+
       ourClients: "عملاؤنا",
       companyName: "شركة التوصيل الخاصة بك",
       courierServices: "خدمات التوصيل",
@@ -257,6 +326,31 @@ const resources = {
       login: "تسجيل الدخول",
       getInTouch: "تواصل معنا",
       trackShipment: "تتبع الشحنة",
+
+      // --- Operations & Network Numbers ---
+      branchesNumber: "٥+",
+      workforceNumber: "٧٥+",
+      shipmentsNumber: "٦٠٠٠+",
+      customersNumber: "٥٠٠٠+",
+
+      servicesHeader: "الخدمات التي نقدمها",
+      servicesDescription:
+        "نجاح ونمو عملك يعتمد على مدى وصول منتجك إلى عملائك بشكل فعال. مع Aipex Worldwide كشريك لك، يمكنك التأكد من التسليم الآمن والسريع.",
+
+      // --- Footer ---
+      whoWeAre: "من نحن",
+      whoWeAreDesc:
+        "نحن نقدم حلولاً لوجستية مبتكرة عبر أنواع مختلفة من المنتجات. تخدم حلولنا للتخزين والتنفيذ احتياجاتك المحلية والعالمية.",
+      followUs: "تابعنا",
+      usefulLinks: "روابط مفيدة",
+      home: "الرئيسية",
+      aboutUs: "من نحن",
+      faqs: "الأسئلة الشائعة",
+      contact: "اتصل بنا",
+      shippingTerms: "شروط الشحن",
+      privacyPolicy: "سياسة الخصوصية",
+      otherServices: "خدمات أخرى",
+      allRightsReserved: "جميع الحقوق محفوظة.",
     },
   },
 };
