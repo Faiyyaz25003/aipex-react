@@ -65,14 +65,11 @@
 
 
 
-
-
 import React, { useState } from "react";
 
 export default function ShippingForm() {
   const [shipmentClass, setShipmentClass] = useState("parcel");
   const [paymentMethod, setPaymentMethod] = useState("prepaid");
-  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     pickupLocation: "",
     deliveryLocation: "",
@@ -112,48 +109,10 @@ export default function ShippingForm() {
     }
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    const requiredFields = [
-      "pickupLocation",
-      "deliveryLocation",
-      "pinCode",
-      "city",
-      "state",
-      "fullName",
-      "email",
-      "phone",
-      "addressLine1",
-      "productDescription",
-      "invoiceValue",
-      "length",
-      "width",
-      "height",
-      "weight",
-    ];
-
-    requiredFields.forEach((field) => {
-      if (!formData[field]) {
-        newErrors[field] = "This field is required";
-      }
-    });
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = () => {
-    if (!validateForm()) {
-      return;
-    }
     console.log("Form Data:", { ...formData, shipmentClass, paymentMethod });
     alert("Searching for carrier...");
   };
-
-  const renderError = (field) =>
-    errors[field] ? (
-      <p className="text-red-500 text-xs mt-1">{errors[field]}</p>
-    ) : null;
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -177,7 +136,6 @@ export default function ShippingForm() {
                 <option value="location2">Location 2</option>
                 <option value="location3">Location 3</option>
               </select>
-              {renderError("pickupLocation")}
             </div>
 
             {/* Shipment Class + Payment Method */}
@@ -268,7 +226,6 @@ export default function ShippingForm() {
                 <option value="location2">Location 2</option>
                 <option value="location3">Location 3</option>
               </select>
-              {renderError("deliveryLocation")}
             </div>
 
             {/* Destination Details */}
@@ -284,7 +241,7 @@ export default function ShippingForm() {
                   value={formData.pinCode}
                   onChange={handleInputChange}
                   placeholder="Delivery Pin Code"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="text"
@@ -292,7 +249,7 @@ export default function ShippingForm() {
                   value={formData.city}
                   onChange={handleInputChange}
                   placeholder="City"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="text"
@@ -300,7 +257,7 @@ export default function ShippingForm() {
                   value={formData.state}
                   onChange={handleInputChange}
                   placeholder="State"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
               </div>
 
@@ -311,7 +268,7 @@ export default function ShippingForm() {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="Full Name"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="email"
@@ -319,7 +276,7 @@ export default function ShippingForm() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Email Address"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="text"
@@ -327,7 +284,7 @@ export default function ShippingForm() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Phone Number"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
               </div>
 
@@ -338,7 +295,7 @@ export default function ShippingForm() {
                   value={formData.addressLine1}
                   onChange={handleInputChange}
                   placeholder="Address Line 1"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="text"
@@ -346,7 +303,7 @@ export default function ShippingForm() {
                   value={formData.addressLine2}
                   onChange={handleInputChange}
                   placeholder="Address Line 2"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
                 <input
                   type="text"
@@ -354,7 +311,7 @@ export default function ShippingForm() {
                   value={formData.addressLine3}
                   onChange={handleInputChange}
                   placeholder="Address Line 3"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
               </div>
             </div>
@@ -370,7 +327,7 @@ export default function ShippingForm() {
                   name="productDescription"
                   value={formData.productDescription}
                   onChange={handleInputChange}
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full"
                 >
                   <option value="">Select Product Description</option>
                   <option value="Apparel">Apparel</option>
@@ -385,7 +342,7 @@ export default function ShippingForm() {
                   value={formData.clientReference}
                   onChange={handleInputChange}
                   placeholder="Client Reference ID / Order ID"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
               </div>
 
@@ -396,7 +353,7 @@ export default function ShippingForm() {
                   value={formData.subProductDescription}
                   onChange={handleInputChange}
                   placeholder="Sub Product Description"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
 
                 <input
@@ -405,7 +362,7 @@ export default function ShippingForm() {
                   value={formData.quantity}
                   onChange={handleInputChange}
                   placeholder="Quantity / Number"
-                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                 />
               </div>
 
@@ -420,7 +377,7 @@ export default function ShippingForm() {
                     value={formData.length}
                     onChange={handleInputChange}
                     placeholder="Length (cm)"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                   />
                   <input
                     type="text"
@@ -428,7 +385,7 @@ export default function ShippingForm() {
                     value={formData.width}
                     onChange={handleInputChange}
                     placeholder="Width (cm)"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                   />
                   <input
                     type="text"
@@ -436,13 +393,13 @@ export default function ShippingForm() {
                     value={formData.height}
                     onChange={handleInputChange}
                     placeholder="Height (cm)"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full"
                   />
                   <select
                     name="weight"
                     value={formData.weight}
                     onChange={handleInputChange}
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full focus:outline-none focus:border-gray-400"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full"
                   >
                     <option value="">Weight</option>
                     <option value="0.5">0.5 kg</option>
@@ -454,7 +411,7 @@ export default function ShippingForm() {
             </div>
 
             {/* Search Button */}
-            <div className=" md:w-[200px]">
+            <div className="md:w-[200px]">
               <button
                 onClick={handleSubmit}
                 className="w-full bg-gray-800 text-white py-2 text-sm rounded hover:bg-gray-700 transition-colors"
