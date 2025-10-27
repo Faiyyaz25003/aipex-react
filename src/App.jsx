@@ -156,15 +156,12 @@ export default function ShippingForm() {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-2 gap-6">
-
-          
           {/* LEFT CONTAINER */}
 
           {/* Pickup Location Container */}
           <div className="p-6 space-y-4">
             {/* Pickup Location (Full Width) */}
             <div className="bg-white p-4 rounded border border-gray-300">
-              
               <label className="block text-red-500 text-sm mb-2">
                 Pickup Location
               </label>
@@ -253,9 +250,9 @@ export default function ShippingForm() {
           </div>
 
           {/* RIGHT CONTAINER */}
-          <div className="bg-white p-6 rounded shadow-sm space-y-8">
-            {/* Delivery Location */}
-            <div>
+          <div className="p-6 space-y-4 min-h-[700px] overflow-auto">
+            {/* Select From Existing Delivery Locations */}
+            <div className="bg-white p-4 rounded border border-gray-300">
               <label className="block text-red-500 text-sm mb-2">
                 Select From Existing Delivery Locations
               </label>
@@ -268,280 +265,206 @@ export default function ShippingForm() {
                 <option value="">Select Delivery Location</option>
                 <option value="location1">Location 1</option>
                 <option value="location2">Location 2</option>
+                <option value="location3">Location 3</option>
               </select>
               {renderError("deliveryLocation")}
             </div>
 
             {/* Destination Details */}
-            <div>
-              <label className="block text-red-500 text-sm mb-4">
+            <div className="bg-white p-4 rounded border border-gray-300">
+              <label className="block text-red-500 text-sm mb-3">
                 Destination Details
               </label>
-              <div className="space-y-3">
-                <div className="grid grid-cols-3 gap-3">
-                  <div>
-                    <input
-                      type="text"
-                      name="pinCode"
-                      value={formData.pinCode}
-                      onChange={handleInputChange}
-                      placeholder="Enter Delivery Pin Code"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("pinCode")}
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      placeholder="City"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("city")}
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="state"
-                      value={formData.state}
-                      onChange={handleInputChange}
-                      placeholder="State"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("state")}
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-3 gap-3">
-                  <div>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      placeholder="Enter Full Name"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("fullName")}
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="Enter Email Address"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("email")}
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="Enter Phone Number"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("phone")}
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                {/* First Row */}
+                <input
+                  type="text"
+                  name="pinCode"
+                  value={formData.pinCode}
+                  onChange={handleInputChange}
+                  placeholder="Delivery Pin Code"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleInputChange}
+                  placeholder="City"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleInputChange}
+                  placeholder="State"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+              </div>
 
-                <div className="grid grid-cols-3 gap-3">
-                  <div>
-                    <input
-                      type="text"
-                      name="addressLine1"
-                      value={formData.addressLine1}
-                      onChange={handleInputChange}
-                      placeholder="Enter Address Line 1"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                    />
-                    {renderError("addressLine1")}
-                  </div>
-                  <input
-                    type="text"
-                    name="addressLine2"
-                    value={formData.addressLine2}
-                    onChange={handleInputChange}
-                    placeholder="Enter Address Line 2"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                  />
-                  <input
-                    type="text"
-                    name="addressLine3"
-                    value={formData.addressLine3}
-                    onChange={handleInputChange}
-                    placeholder="Enter Address Line 3"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
-                  />
-                </div>
+              {/* Second Row */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  placeholder="Full Name"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email Address"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Phone Number"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+              </div>
+
+              {/* Third Row */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+                <input
+                  type="text"
+                  name="addressLine1"
+                  value={formData.addressLine1}
+                  onChange={handleInputChange}
+                  placeholder="Address Line 1"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="text"
+                  name="addressLine2"
+                  value={formData.addressLine2}
+                  onChange={handleInputChange}
+                  placeholder="Address Line 2"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+                <input
+                  type="text"
+                  name="addressLine3"
+                  value={formData.addressLine3}
+                  onChange={handleInputChange}
+                  placeholder="Address Line 3"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
               </div>
             </div>
 
             {/* Shipment Details */}
-            <div>
-              <label className="block text-red-500 text-sm mb-4">
+            <div className="bg-white p-4 rounded border border-gray-300 space-y-4">
+              <label className="block text-red-500 text-sm mb-3">
                 Shipment Details
               </label>
-              <div className="space-y-3">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <select
-                      name="productDescription"
-                      value={formData.productDescription}
-                      onChange={handleInputChange}
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white focus:outline-none focus:border-gray-400 w-full"
-                    >
-                      <option value="">Select Product Description</option>
-                      <option value="Apparel">Apparel</option>
-                      <option value="Auto Parts">Auto Parts</option>
-                      <option value="Beauty Products">Beauty Products</option>
-                      <option value="Books">Books</option>
-                      <option value="Cables">Cables</option>
-                      <option value="Camera Accessories">
-                        Camera Accessories
-                      </option>
-                      <option value="Clothing">Clothing</option>
-                      <option value="Cosmetics">Cosmetics</option>
-                      <option value="Crafts">Crafts</option>
-                      <option value="Documents">Documents</option>
-                      <option value="Electronic Items">Electronic Items</option>
-                      <option value="Fashion Accessories">
-                        Fashion Accessories
-                      </option>
-                      <option value="Footwear">Footwear</option>
-                      <option value="Gadgets">Gadgets</option>
-                      <option value="Gift Items">Gift Items</option>
-                      <option value="Grocery Items">Grocery Items</option>
-                      <option value="Health Products">Health Products</option>
-                      <option value="Home Appliances">Home Appliances</option>
-                      <option value="Household Items">Household Items</option>
-                      <option value="Jewellery">Jewellery</option>
-                      <option value="Kitchen Appliances">
-                        Kitchen Appliances
-                      </option>
-                      <option value="Laptops">Laptops</option>
-                      <option value="Medical Items">Medical Items</option>
-                      <option value="Mobile Accessories">
-                        Mobile Accessories
-                      </option>
-                      <option value="Mobile Phones">Mobile Phones</option>
-                      <option value="Musical Instruments">
-                        Musical Instruments
-                      </option>
-                      <option value="Office Stationery">
-                        Office Stationery
-                      </option>
-                      <option value="Personal Care">Personal Care</option>
-                      <option value="Sports Equipment">Sports Equipment</option>
-                      <option value="Toys">Toys</option>
-                      <option value="Watches">Watches</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    {renderError("productDescription")}
-                  </div>
-                  <input
-                    type="text"
-                    name="clientReference"
-                    value={formData.clientReference}
-                    onChange={handleInputChange}
-                    placeholder="Client reference id/Order id"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <input
-                    type="text"
-                    name="subProductDescription"
-                    value={formData.subProductDescription}
-                    onChange={handleInputChange}
-                    placeholder="Sub Product Description"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                  />
-                  <div>
-                    <input
-                      type="text"
-                      name="invoiceValue"
-                      value={formData.invoiceValue}
-                      onChange={handleInputChange}
-                      placeholder="Invoice Value"
-                      className="px-3 py-2.5 border border-gray-300 rounded text-sm placeholder-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    />
-                    {renderError("invoiceValue")}
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Dimensions */}
-            <div>
-              <label className="block text-red-500 text-sm mb-4">
-                Dimensions
-              </label>
-              <div className="grid grid-cols-4 gap-3">
-                <div>
+              {/* First Row: Product Description & Client Reference */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <select
+                  name="productDescription"
+                  value={formData.productDescription}
+                  onChange={handleInputChange}
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full focus:outline-none focus:border-gray-400"
+                >
+                  <option value="">Select Product Description</option>
+                  <option value="Apparel">Apparel</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Books">Books</option>
+                  <option value="Other">Other</option>
+                </select>
+
+                <input
+                  type="text"
+                  name="clientReference"
+                  value={formData.clientReference}
+                  onChange={handleInputChange}
+                  placeholder="Client Reference ID / Order ID"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+              </div>
+
+              {/* Second Row: Sub Product Description & Quantity */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                <input
+                  type="text"
+                  name="subProductDescription"
+                  value={formData.subProductDescription}
+                  onChange={handleInputChange}
+                  placeholder="Sub Product Description"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+
+                <input
+                  type="number"
+                  name="quantity"
+                  value={formData.quantity}
+                  onChange={handleInputChange}
+                  placeholder="Quantity / Number"
+                  className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
+                />
+              </div>
+
+              {/* Dimensions */}
+              <div>
+                <label className="block text-red-500 text-sm mb-2">
+                  Dimensions
+                </label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <input
                     type="text"
                     name="length"
                     value={formData.length}
                     onChange={handleInputChange}
-                    placeholder="Length in cm"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
+                    placeholder="Length (cm)"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
                   />
-                  {renderError("length")}
-                </div>
-                <div>
                   <input
                     type="text"
                     name="width"
                     value={formData.width}
                     onChange={handleInputChange}
-                    placeholder="Width in cm"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
+                    placeholder="Width (cm)"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
                   />
-                  {renderError("width")}
-                </div>
-                <div>
                   <input
                     type="text"
                     name="height"
                     value={formData.height}
                     onChange={handleInputChange}
-                    placeholder="Height in cm"
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm w-full placeholder-gray-400 focus:outline-none focus:border-gray-400"
+                    placeholder="Height (cm)"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-700 w-full focus:outline-none focus:border-gray-400"
                   />
-                  {renderError("height")}
-                </div>
-                <div>
                   <select
                     name="weight"
                     value={formData.weight}
                     onChange={handleInputChange}
-                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white focus:outline-none focus:border-gray-400 w-full"
+                    className="px-3 py-2.5 border border-gray-300 rounded text-sm text-gray-600 bg-white w-full focus:outline-none focus:border-gray-400"
                   >
-                    <option value="">Select Actual Weight</option>
+                    <option value="">Weight</option>
                     <option value="0.5">0.5 kg</option>
                     <option value="1">1 kg</option>
                     <option value="2">2 kg</option>
-                    <option value="5">5 kg</option>
-                    <option value="10">10 kg</option>
                   </select>
-                  {renderError("weight")}
                 </div>
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="flex">
+            {/* Search Button */}
+            <div className="bg-white p-4 rounded border border-gray-300 w-full md:w-[200px]">
               <button
                 onClick={handleSubmit}
-                className="px-12 py-3 bg-gray-800 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+                className="w-full bg-gray-800 text-white py-2 text-sm rounded hover:bg-gray-700 transition-colors"
               >
-                Search Carrier
+                Search
               </button>
             </div>
           </div>
