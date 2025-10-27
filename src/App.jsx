@@ -65,6 +65,8 @@
 
 
 
+
+
 import React, { useState } from "react";
 
 export default function ShippingForm() {
@@ -92,6 +94,7 @@ export default function ShippingForm() {
     width: "",
     height: "",
     weight: "",
+    quantity: "",
   });
 
   const handleInputChange = (e) => {
@@ -155,12 +158,10 @@ export default function ShippingForm() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-[1fr_2fr] gap-6">
           {/* LEFT CONTAINER */}
-
-          {/* Pickup Location Container */}
           <div className="p-6 space-y-4">
-            {/* Pickup Location (Full Width) */}
+            {/* Pickup Location */}
             <div className="bg-white p-4 rounded border border-gray-300">
               <label className="block text-red-500 text-sm mb-2">
                 Pickup Location
@@ -179,7 +180,7 @@ export default function ShippingForm() {
               {renderError("pickupLocation")}
             </div>
 
-            {/* Shipment Class + Payment Method Side by Side */}
+            {/* Shipment Class + Payment Method */}
             <div className="flex flex-col md:flex-row gap-4">
               {/* Shipment Class */}
               <div className="bg-white p-4 rounded border border-gray-300 flex-1">
@@ -250,8 +251,8 @@ export default function ShippingForm() {
           </div>
 
           {/* RIGHT CONTAINER */}
-          <div className="p-6 space-y-4 min-h-[700px] overflow-auto">
-            {/* Select From Existing Delivery Locations */}
+          <div className="p-6 space-y-4 min-h-[500px] overflow-auto">
+            {/* Delivery Location */}
             <div className="bg-white p-4 rounded border border-gray-300">
               <label className="block text-red-500 text-sm mb-2">
                 Select From Existing Delivery Locations
@@ -277,7 +278,6 @@ export default function ShippingForm() {
               </label>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {/* First Row */}
                 <input
                   type="text"
                   name="pinCode"
@@ -304,7 +304,6 @@ export default function ShippingForm() {
                 />
               </div>
 
-              {/* Second Row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
                 <input
                   type="text"
@@ -332,7 +331,6 @@ export default function ShippingForm() {
                 />
               </div>
 
-              {/* Third Row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
                 <input
                   type="text"
@@ -367,7 +365,6 @@ export default function ShippingForm() {
                 Shipment Details
               </label>
 
-              {/* First Row: Product Description & Client Reference */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <select
                   name="productDescription"
@@ -392,7 +389,6 @@ export default function ShippingForm() {
                 />
               </div>
 
-              {/* Second Row: Sub Product Description & Quantity */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                 <input
                   type="text"
@@ -413,7 +409,6 @@ export default function ShippingForm() {
                 />
               </div>
 
-              {/* Dimensions */}
               <div>
                 <label className="block text-red-500 text-sm mb-2">
                   Dimensions
@@ -459,12 +454,12 @@ export default function ShippingForm() {
             </div>
 
             {/* Search Button */}
-            <div className="bg-white p-4 rounded border border-gray-300 w-full md:w-[200px]">
+            <div className=" md:w-[200px]">
               <button
                 onClick={handleSubmit}
                 className="w-full bg-gray-800 text-white py-2 text-sm rounded hover:bg-gray-700 transition-colors"
               >
-                Search
+                Search Carrier
               </button>
             </div>
           </div>
