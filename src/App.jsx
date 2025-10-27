@@ -31,7 +31,6 @@
 
 // export default App;
 
-
 import React from 'react'
 
 import Navbar from './pages/Navbar'
@@ -62,4 +61,5 @@ const App = () => {
   );
 }
 
-export default App
+export default App;
+
