@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+
+
+import React, { useState, useEffect, useRef } from "react";
 import { User, Building2, Phone } from "lucide-react";
 
 export default function Consignment() {
@@ -8,6 +10,8 @@ export default function Consignment() {
   const [loading, setLoading] = useState(false);
   const [apiResponse, setApiResponse] = useState(null);
   const [pickupLocations, setPickupLocations] = useState([]);
+
+  const hasFetched = useRef(false); // ✅ Prevent duplicate API calls
 
   const [formData, setFormData] = useState({
     pickupLocation: "",
@@ -34,65 +38,62 @@ export default function Consignment() {
   });
 
   // ✅ Fetch pickup locations from API
-useEffect(() => {
-  let didFetch = false;
+  useEffect(() => {
+    const fetchPickupLocations = async () => {
+      if (hasFetched.current) return; // ✅ Block 2nd call in Strict Mode
+      hasFetched.current = true;
 
-  const fetchPickupLocations = async () => {
-    if (didFetch) return; // ✅ Prevent second call
-    didFetch = true;
+      try {
+        setLoading(true);
+        const response = await fetch(
+          "https://www.aipexworldwide.com/live/V2/config/approve",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "583b3eb00588fff07084b007455c34ef",
+            },
+          }
+        );
 
-    try {
-      setLoading(true);
-      const response = await fetch(
-        "https://www.aipexworldwide.com/live/V2/config/approve",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "583b3eb00588fff07084b007455c34ef",
-          },
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          const text = await response.text();
+          console.error("🚫 Non-JSON response:", text);
+          throw new Error("Invalid JSON response from API");
         }
-      );
 
-      const contentType = response.headers.POST("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        const text = await response.text();
-        console.error("🚫 Non-JSON response:", text);
-        throw new Error("Invalid JSON response from API");
-      }
+        const data = await response.json();
+        console.log("✅ Pickup API Response:", data);
 
-      const data = await response.json();
-      console.log("✅ Pickup API Response:", data);
-
-      if (data.error) {
+        if (data.error) {
+          setPickupLocations([]);
+        } else if (Array.isArray(data)) {
+          setPickupLocations(data);
+        } else if (Array.isArray(data.data)) {
+          setPickupLocations(data.data);
+        } else if (Array.isArray(data.locations)) {
+          setPickupLocations(data.locations);
+        } else {
+          setPickupLocations([]);
+        }
+      } catch (error) {
+        console.error("❌ Error fetching pickup locations:", error);
         setPickupLocations([]);
-      } else if (Array.isArray(data)) {
-        setPickupLocations(data);
-      } else if (Array.isArray(data.data)) {
-        setPickupLocations(data.data);
-      } else if (Array.isArray(data.locations)) {
-        setPickupLocations(data.locations);
-      } else {
-        setPickupLocations([]);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("❌ Error fetching pickup locations:", error);
-      setPickupLocations([]);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
-  fetchPickupLocations();
-}, []);
-
+    fetchPickupLocations();
+  }, []);
 
   const selectedLocation =
     pickupLocations.find(
       (loc) => String(loc.Id) === String(formData.pickupLocation)
     ) || null;
 
-  // Handle input change
+  // ✅ Handle input change
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -308,6 +309,7 @@ useEffect(() => {
           </div>
 
           {/* RIGHT PANEL */}
+           {/* RIGHT PANEL */}
           <div className="p-6 space-y-4 min-h-[500px] overflow-auto">
             {/* Delivery Location */}
             <div className="bg-white p-4 rounded border border-gray-300">
@@ -519,6 +521,7 @@ useEffect(() => {
           </div>
         </div>
       </div>
-    </div>
+        </div>
+    
   );
 }
