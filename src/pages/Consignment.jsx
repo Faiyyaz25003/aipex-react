@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useRef } from "react";
 import { User, Building2, Phone } from "lucide-react";
 
@@ -47,21 +45,25 @@ export default function Consignment() {
         setLoading(true);
         const response = await fetch(
           "https://www.aipexworldwide.com/live/V2/config/approve",
+
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Authorization: "583b3eb00588fff07084b007455c34ef",
             },
+            body: JSON.stringify({
+              email: "test@aipexworldwide.com",
+            }),
           }
         );
 
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          const text = await response.text();
-          console.error("🚫 Non-JSON response:", text);
-          throw new Error("Invalid JSON response from API");
-        }
+        // const contentType = response.headers.get("content-type");
+        // if (!contentType || !contentType.includes("application/json")) {
+        //   const text = await response.text();
+        //   console.error("🚫 Non-JSON response:", text);
+        //   throw new Error("Invalid JSON response from API");
+        // }
 
         const data = await response.json();
         console.log("✅ Pickup API Response:", data);
@@ -87,6 +89,7 @@ export default function Consignment() {
 
     fetchPickupLocations();
   }, []);
+  
 
   const selectedLocation =
     pickupLocations.find(
@@ -107,6 +110,7 @@ export default function Consignment() {
     setShipmentClass(value);
     if (value === "document") setPaymentMethod("prepaid");
   };
+ 
 
   const validateForm = () => {
     let newErrors = {};
@@ -164,6 +168,7 @@ export default function Consignment() {
 
       const response = await fetch(
         "https://www.aipexworldwide.com/live/V2/config/approve",
+     
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -188,6 +193,34 @@ export default function Consignment() {
       <p className="text-xs text-red-500 mt-1">{errors[field]}</p>
     );
 
+  
+  
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://www.aipexworldwide.com/live/V2/config/rate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "583b3eb00588fff07084b007455c34ef",
+        },
+        body: JSON.stringify({
+          email: "test@aipexworldwide.com",
+        }),
+      });
+
+      console.log("Response:", response);
+      const data = await response.json();
+      console.log("Parsed Data:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  fetchData();
+}, []);
+  
+  
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-[1400px] mx-auto">
@@ -219,6 +252,7 @@ export default function Consignment() {
                   </option>
                 ))}
               </select>
+
               {renderError("pickupLocation")}
 
               {/* Selected location details */}
@@ -309,7 +343,6 @@ export default function Consignment() {
           </div>
 
           {/* RIGHT PANEL */}
-           {/* RIGHT PANEL */}
           <div className="p-6 space-y-4 min-h-[500px] overflow-auto">
             {/* Delivery Location */}
             <div className="bg-white p-4 rounded border border-gray-300">
@@ -521,7 +554,6 @@ export default function Consignment() {
           </div>
         </div>
       </div>
-        </div>
-    
+    </div>
   );
 }
