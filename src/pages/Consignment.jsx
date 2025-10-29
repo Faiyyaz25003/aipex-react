@@ -246,15 +246,13 @@ useEffect(() => {
                 </option>
                 {pickupLocations.map((loc) => (
                   <option key={loc.Id} value={loc.Id}>
-                    {
-                      loc.Name ||
+                    {loc.Name ||
                       loc.CompanyName ||
                       `Location ${loc.Id}` ||
-                        loc.addressLine1 ||
-                        loc.addressLine2 ||
+                      loc.addressLine1 ||
+                      loc.addressLine2 ||
                       loc.addressLine3 ||
-                      loc.MobileNo
-                    }
+                      loc.MobileNo}
                   </option>
                 ))}
               </select>
@@ -270,9 +268,9 @@ useEffect(() => {
                   <div className="flex items-start gap-2">
                     <Building2 size={16} className="text-gray-500 mt-1" />
                     <p>
-                      {selectedLocation["Addressline_1"] || "N/A"},
-                      {selectedLocation["Addressline_2"] || "N/A"},
-                      {selectedLocation["Addressline_3"] || "N/A"},
+                      {selectedLocation.Addressline_1 || "N/A"},
+                      {selectedLocation.Addressline_2 || "N/A"},
+                      {selectedLocation.Addressline_3 || "N/A"},
                       <br />
                       Pin code - {selectedLocation["Pincode"] || "N/A"}
                     </p>
