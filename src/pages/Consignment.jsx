@@ -147,7 +147,7 @@ useEffect(() => {
         clientReference: formData.clientReference,
         invoiceValue: formData.invoiceValue,
         quantity: formData.quantity,
-        dimensions: `${formData.length}x${formData.width}x${formData.height} cm`,
+        dimensions: `${formData.length} x ${formData.width} x ${formData.height} cm`,
         weight: formData.weight,
       };
 
@@ -180,11 +180,11 @@ useEffect(() => {
 
   
   
+
   useEffect(() => {
     const fetchPickupLocations = async () => {
       setLoading(true);
       try {
-        // ✅ API CALL (POST request)
         const response = await fetch(
           "https://www.aipexworldwide.com/live/V2/config/rate",
           {
@@ -193,21 +193,21 @@ useEffect(() => {
               "Content-Type": "application/json",
               Authorization: "583b3eb00588fff07084b007455c34ef",
             },
-            body: JSON.stringify({
-              email: "test@aipexworldwide.com",
-            }),
+            body: JSON.stringify({ email: "test@aipexworldwide.com" }),
           }
         );
 
-        console.log("Response object:", response);
+        // Always check if response is OK
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
         const data = await response.json();
         console.log("Parsed Data:", data);
 
-        // ✅ Convert your API’s object into an array if needed
-        const locationsArray = Object.values(data);
+        // Convert object to array if needed
+        const locationsArray = Array.isArray(data) ? data : Object.values(data);
 
-        // ✅ Save into state for binding
         setPickupLocations(locationsArray);
       } catch (error) {
         console.error("Error fetching pickup locations:", error);
