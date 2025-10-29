@@ -140,7 +140,7 @@ useEffect(() => {
         pinCode: formData.pinCode,
         city: formData.city,
         state: formData.state,
-        address: `${formData.addressLine1}, ${formData.addressLine2}, ${formData.addressLine3}`,
+         address: `${formData.addressLine1}, ${formData.addressLine2}, ${formData.addressLine3}`,
         productDescription: formData.productDescription,
         subProductDescription: formData.subProductDescription,
         clientReference: formData.clientReference,
@@ -246,16 +246,20 @@ useEffect(() => {
                 </option>
                 {pickupLocations.map((loc) => (
                   <option key={loc.Id} value={loc.Id}>
-                    {loc.Name ||
+                    {
+                      loc.Name ||
                       loc.CompanyName ||
                       `Location ${loc.Id}` ||
-                      loc.MobileNo}
+                        loc.addressLine1 ||
+                        loc.addressLine2 ||
+                      loc.addressLine3 ||
+                      loc.MobileNo
+                    }
                   </option>
                 ))}
               </select>
 
               {renderError("pickupLocation")}
-
               {/* Selected location details */}
               {selectedLocation && (
                 <div className="mt-4 text-gray-700 space-y-2 text-sm leading-relaxed">
@@ -266,16 +270,16 @@ useEffect(() => {
                   <div className="flex items-start gap-2">
                     <Building2 size={16} className="text-gray-500 mt-1" />
                     <p>
-                      {selectedLocation["Address line 1"]},{" "}
-                      {selectedLocation["Address line 2"]},{" "}
-                      {selectedLocation["Address line 3"]}
+                      {selectedLocation["Addressline_1"] || "N/A"},
+                      {selectedLocation["Addressline_2"] || "N/A"},
+                      {selectedLocation["Addressline_3"] || "N/A"},
                       <br />
                       Pin code - {selectedLocation["Pincode"] || "N/A"}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <Phone size={16} className="text-gray-500" />
-                    <span>{selectedLocation["Mobile No"]}</span>
+                    <span>{selectedLocation.MobileNo}</span>
                   </div>
                 </div>
               )}
