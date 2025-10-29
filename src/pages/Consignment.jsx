@@ -140,7 +140,8 @@ useEffect(() => {
         pinCode: formData.pinCode,
         city: formData.city,
         state: formData.state,
-         address: `${formData.addressLine1}, ${formData.addressLine2}, ${formData.addressLine3}`,
+        // address: `${formData.addressLine1}, ${formData.addressLine2}, ${formData.addressLine3}`, //chatgpt
+        address: 'formData.addressLine1' + 'formData.addressLine2' + 'formData.addressLine3', //me
         productDescription: formData.productDescription,
         subProductDescription: formData.subProductDescription,
         clientReference: formData.clientReference,
