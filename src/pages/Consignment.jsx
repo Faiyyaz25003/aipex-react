@@ -36,60 +36,44 @@ export default function Consignment() {
   });
 
   // ✅ Fetch pickup locations from API
-  useEffect(() => {
-    const fetchPickupLocations = async () => {
-      if (hasFetched.current) return; // ✅ Block 2nd call in Strict Mode
-      hasFetched.current = true;
+useEffect(() => {
+  const fetchPickupLocations = async () => {
+    if (hasFetched.current) return; // prevent multiple calls
+    hasFetched.current = true;
 
-      try {
-        setLoading(true);
-        const response = await fetch(
-          "https://www.aipexworldwide.com/live/V2/config/approve",
+    try {
+      setLoading(true);
 
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "583b3eb00588fff07084b007455c34ef",
-            },
-            body: JSON.stringify({
-              email: "test@aipexworldwide.com",
-            }),
-          }
-        );
-
-        // const contentType = response.headers.get("content-type");
-        // if (!contentType || !contentType.includes("application/json")) {
-        //   const text = await response.text();
-        //   console.error("🚫 Non-JSON response:", text);
-        //   throw new Error("Invalid JSON response from API");
-        // }
-
-        const data = await response.json();
-        console.log("✅ Pickup API Response:", data);
-
-        if (data.error) {
-          setPickupLocations([]);
-        } else if (Array.isArray(data)) {
-          setPickupLocations(data);
-        } else if (Array.isArray(data.data)) {
-          setPickupLocations(data.data);
-        } else if (Array.isArray(data.locations)) {
-          setPickupLocations(data.locations);
-        } else {
-          setPickupLocations([]);
+      const response = await fetch(
+        "https://www.aipexworldwide.com/live/V2/config/approve",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "583b3eb00588fff07084b007455c34ef",
+          },
+          body: JSON.stringify({ email: "test@aipexworldwide.com" }),
         }
-      } catch (error) {
-        console.error("❌ Error fetching pickup locations:", error);
-        setPickupLocations([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+      );
 
-    fetchPickupLocations();
-  }, []);
-  
+      const data = await response.json();
+      console.log("✅ Raw API Response:", data);
+
+     //COA
+      const locationsArray = Object.values(data);
+
+      setPickupLocations(locationsArray);
+    } catch (error) {
+      console.error("❌ Error fetching pickup locations:", error);
+      setPickupLocations([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchPickupLocations();
+}, []);
+
 
   const selectedLocation =
     pickupLocations.find(
@@ -196,30 +180,44 @@ export default function Consignment() {
   
   
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch("https://www.aipexworldwide.com/live/V2/config/rate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "583b3eb00588fff07084b007455c34ef",
-        },
-        body: JSON.stringify({
-          email: "test@aipexworldwide.com",
-        }),
-      });
+    const fetchPickupLocations = async () => {
+      setLoading(true);
+      try {
+        // ✅ API CALL (POST request)
+        const response = await fetch(
+          "https://www.aipexworldwide.com/live/V2/config/rate",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "583b3eb00588fff07084b007455c34ef",
+            },
+            body: JSON.stringify({
+              email: "test@aipexworldwide.com",
+            }),
+          }
+        );
 
-      console.log("Response:", response);
-      const data = await response.json();
-      console.log("Parsed Data:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+        console.log("Response object:", response);
 
-  fetchData();
-}, []);
-  
+        const data = await response.json();
+        console.log("Parsed Data:", data);
+
+        // ✅ Convert your API’s object into an array if needed
+        const locationsArray = Object.values(data);
+
+        // ✅ Save into state for binding
+        setPickupLocations(locationsArray);
+      } catch (error) {
+        console.error("Error fetching pickup locations:", error);
+        setPickupLocations([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPickupLocations();
+  }, []);
   
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -248,7 +246,10 @@ export default function Consignment() {
                 </option>
                 {pickupLocations.map((loc) => (
                   <option key={loc.Id} value={loc.Id}>
-                    {loc.Name || loc["Pickup Name"] || `Location ${loc.Id}`}
+                    {loc.Name ||
+                      loc.CompanyName ||
+                      `Location ${loc.Id}` ||
+                      loc.MobileNo}
                   </option>
                 ))}
               </select>
