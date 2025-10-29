@@ -59,10 +59,19 @@ useEffect(() => {
       const data = await response.json();
       console.log("✅ Raw API Response:", data);
 
-     //COA
-      const locationsArray = Object.values(data);
+      // Handle if API returns object or array
+      let locationsArray = [];
 
-      setPickupLocations(locationsArray);
+      if (Array.isArray(data)) {
+        locationsArray = data;
+      } else if (data && typeof data === "object") {
+        // If pickup locations are nested inside an object key
+        locationsArray =
+          data.pickupLocations || data.locations || Object.values(data).flat();
+      }
+
+      console.log("📦 Parsed pickup locations:", locationsArray);
+      setPickupLocations(locationsArray || []);
     } catch (error) {
       console.error("❌ Error fetching pickup locations:", error);
       setPickupLocations([]);
@@ -75,10 +84,12 @@ useEffect(() => {
 }, []);
 
 
-  const selectedLocation =
-    pickupLocations.find(
-      (loc) => String(loc.Id) === String(formData.pickupLocation)
-    ) || null;
+
+ const selectedLocation =
+   pickupLocations.find(
+     (loc) => String(loc.Id) === String(formData.pickupLocation)
+   ) || null;
+
 
   // ✅ Handle input change
   const handleInputChange = (e) => {
@@ -182,10 +193,10 @@ useEffect(() => {
   
 
  useEffect(() => {
-   const fetchPickupLocations = async () => {
-     setLoading(true);
+   const fetchRate = async () => {
      try {
-       const response = await fetch(
+       setLoading(true);
+       const res = await fetch(
          "https://www.aipexworldwide.com/live/V2/config/rate",
          {
            method: "POST",
@@ -195,40 +206,28 @@ useEffect(() => {
            },
            body: JSON.stringify({
              email: "test@aipexworldwide.com",
-             client_pincode: 400004,
-             delivery_pincode: 400005,
-             length: 9,
-             width: 8,
-             height: 1,
-             Total_wt: 1,
-             doctype: 2,
-             payment_mode: "Prepaid",
-             Invoice_val: 120,
-             all_dia: [[50, 10, 11, "9.50", 1]],
+             client_pincode: formData.pinCode,
+             delivery_pincode: formData.deliveryLocation,
+             length: formData.length,
+             width: formData.width,
+             height: formData.height,
+             Total_wt: formData.weight,
+             payment_mode: paymentMethod,
+             Invoice_val: formData.invoiceValue || 120,
            }),
          }
        );
-
-       if (!response.ok) {
-         throw new Error(`HTTP error! status: ${response.status}`);
-       }
-
-       const data = await response.json();
-       console.log("Parsed Data:", data);
-
-       const locationsArray = Array.isArray(data) ? data : Object.values(data);
-
-       setPickupLocations(locationsArray);
-     } catch (error) {
-       console.error("Error fetching pickup locations:", error);
-       setPickupLocations([]);
+       const data = await res.json();
+       console.log("Rate Response:", data);
+     } catch (err) {
+       console.error(err);
      } finally {
        setLoading(false);
      }
    };
-
-   fetchPickupLocations();
+   fetchRate();
  }, []);
+
 
   
   return (
@@ -256,15 +255,15 @@ useEffect(() => {
                     ? "No pickup locations available"
                     : "Select your pickup address"}
                 </option>
-                {pickupLocations.map((loc) => (
-                  <option key={loc.Id} value={loc.Id}>
+
+                {pickupLocations.map((loc, index) => (
+                  <option key={loc.Id || index} value={loc.Id || index}>
                     {loc.Name ||
                       loc.CompanyName ||
-                      `Location ${loc.Id}` ||
                       loc.addressLine1 ||
-                      loc.addressLine2 ||
-                      loc.addressLine3 ||
-                      loc.MobileNo}
+                      loc.Addressline_1 ||
+                      loc.MobileNo ||
+                      `Location ${loc.Id || index}`}
                   </option>
                 ))}
               </select>
