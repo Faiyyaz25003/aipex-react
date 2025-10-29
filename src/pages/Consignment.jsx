@@ -181,44 +181,55 @@ useEffect(() => {
   
   
 
-  useEffect(() => {
-    const fetchPickupLocations = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          "https://www.aipexworldwide.com/live/V2/config/rate",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "583b3eb00588fff07084b007455c34ef",
-            },
-            body: JSON.stringify({ email: "test@aipexworldwide.com" }),
-          }
-        );
+ useEffect(() => {
+   const fetchPickupLocations = async () => {
+     setLoading(true);
+     try {
+       const response = await fetch(
+         "https://www.aipexworldwide.com/live/V2/config/rate",
+         {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+             Authorization: "583b3eb00588fff07084b007455c34ef",
+           },
+           body: JSON.stringify({
+             email: "test@aipexworldwide.com",
+             client_pincode: 400004,
+             delivery_pincode: 400005,
+             length: 9,
+             width: 8,
+             height: 1,
+             Total_wt: 1,
+             doctype: 2,
+             payment_mode: "Prepaid",
+             Invoice_val: 120,
+             all_dia: [[50, 10, 11, "9.50", 1]],
+           }),
+         }
+       );
 
-        // Always check if response is OK
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+       if (!response.ok) {
+         throw new Error(`HTTP error! status: ${response.status}`);
+       }
 
-        const data = await response.json();
-        console.log("Parsed Data:", data);
+       const data = await response.json();
+       console.log("Parsed Data:", data);
 
-        // Convert object to array if needed
-        const locationsArray = Array.isArray(data) ? data : Object.values(data);
+       const locationsArray = Array.isArray(data) ? data : Object.values(data);
 
-        setPickupLocations(locationsArray);
-      } catch (error) {
-        console.error("Error fetching pickup locations:", error);
-        setPickupLocations([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+       setPickupLocations(locationsArray);
+     } catch (error) {
+       console.error("Error fetching pickup locations:", error);
+       setPickupLocations([]);
+     } finally {
+       setLoading(false);
+     }
+   };
 
-    fetchPickupLocations();
-  }, []);
+   fetchPickupLocations();
+ }, []);
+
   
   return (
     <div className="min-h-screen bg-gray-50 p-8">
